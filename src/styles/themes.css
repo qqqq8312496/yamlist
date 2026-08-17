@@ -1,0 +1,61 @@
+:root {
+  /* 主题1：梦幻渐变（默认） */
+  --gradient-start: #a78bfa;
+  --gradient-end: #818cf8;
+  --accent-color: #8b5cf6;
+  --accent-hover: #7c3aed;
+  --bg-blur: rgba(255, 255, 255, 0.65);
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --text-primary: #1c1c1e;
+  --text-secondary: #666;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* 主题2：清新绿 */
+[data-theme='green'] {
+  --gradient-start: #6ee7b7;
+  --gradient-end: #3b82f6;
+  --accent-color: #10b981;
+  --accent-hover: #059669;
+}
+
+/* 主题3：温暖橙 */
+[data-theme='orange'] {
+  --gradient-start: #fcd34d;
+  --gradient-end: #f59e0b;
+  --accent-color: #f97316;
+  --accent-hover: #ea580c;
+}
+
+/* 主题4：深色模式 */
+[data-theme='dark'] {
+  --gradient-start: #4c1d95;
+  --gradient-end: #1e1b4b;
+  --accent-color: #8b5cf6;
+  --accent-hover: #7c3aed;
+  --bg-blur: rgba(0, 0, 0, 0.5);
+  --card-bg: rgba(30, 30, 30, 0.8);
+  --text-primary: #f5f5f7;
+  --text-secondary: #999;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 标签颜色 */
+.tab-color-work {
+  --tab-color: #8b5cf6;
+}
+
+.tab-color-life {
+  --tab-color: #10b981;
+}
+
+.tab-color-study {
+  --tab-color: #f59e0b;
+}
+
+.tab-color-important {
+  --tab-color: #ef4444;
+}
