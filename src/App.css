@@ -1,0 +1,99 @@
+.app-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible;
+}
+
+.app-container.locked {
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.app-container.locked::after {
+  content: '🔒';
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  font-size: 16px;
+  opacity: 0.6;
+  animation: fadeIn 0.3s ease;
+  z-index: 10000;
+}
+
+.main-window {
+  position: absolute;
+  left: 30px;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.58) 0%, rgba(255, 255, 255, 0.52) 100%);
+  backdrop-filter: blur(50px) saturate(200%);
+  -webkit-backdrop-filter: blur(50px) saturate(200%);
+  border-radius: 20px;
+  box-shadow:
+    0 20px 60px rgba(31, 38, 135, 0.18),
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  pointer-events: auto;
+}
+
+/* 响应式：窗口宽度小于350px时减小padding */
+@media (max-width: 350px) {
+  .main-window {
+    left: 25px;
+    border-radius: 16px;
+  }
+}
+
+/* 响应式：窗口宽度在300-320px之间进一步优化 */
+@media (max-width: 320px) {
+  .main-window {
+    left: 20px;
+    border-radius: 14px;
+  }
+}
+
+.lock-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.lock-icon {
+  font-size: 48px;
+  animation: pulse 2s ease-in-out infinite;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
