@@ -1,0 +1,101 @@
+.add-task-button-container {
+  position: absolute;
+  bottom: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.add-task-button {
+  width: 140px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.35) 0%, rgba(var(--primary-rgb), 0.3) 100%);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(var(--primary-rgb), 0.25);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 4px 16px rgba(var(--primary-rgb), 0.15),
+    inset 0 1px 3px rgba(255, 255, 255, 0.4),
+    inset 0 -1px 3px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+/* 果冻反光效果 */
+.add-task-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  transition: left 0.5s ease;
+}
+
+.add-task-button:hover::before {
+  left: 100%;
+}
+
+/* 果冻高光 */
+.add-task-button::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 10%;
+  right: 10%;
+  height: 40%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.35) 0%, transparent 100%);
+  border-radius: 16px 16px 50% 50%;
+  pointer-events: none;
+}
+
+.add-task-button:hover {
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.45) 0%, rgba(var(--primary-rgb), 0.4) 100%);
+  border-color: rgba(var(--primary-rgb), 0.4);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow:
+    0 8px 28px rgba(var(--primary-rgb), 0.25),
+    inset 0 1px 3px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.add-task-button:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow:
+    0 2px 6px rgba(var(--primary-rgb), 0.2),
+    inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.button-icon {
+  font-size: 20px;
+  filter: drop-shadow(0 2px 4px rgba(var(--primary-rgb), 0.2));
+  transition: transform 0.3s ease;
+}
+
+.add-task-button:hover .button-icon {
+  transform: rotate(90deg) scale(1.1);
+}
+
+.button-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gradient-end);
+  text-shadow:
+    0 1px 2px rgba(255, 255, 255, 0.8),
+    0 2px 4px rgba(var(--primary-rgb), 0.15);
+  letter-spacing: 0.5px;
+}
