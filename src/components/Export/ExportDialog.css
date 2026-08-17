@@ -1,0 +1,335 @@
+.export-dialog {
+  max-width: 540px;
+}
+
+.export-stats-box {
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(var(--primary-rgb), 0.05) 100%);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(var(--primary-rgb), 0.15);
+}
+
+.export-stats-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #555;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.export-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.export-stat-item {
+  font-size: 13px;
+  color: #666;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.export-stat-value {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.export-stat-value.total {
+  color: var(--primary-color);
+}
+
+.export-stat-value.done {
+  color: #10b981;
+}
+
+.export-stat-value.pending {
+  color: #3b82f6;
+}
+
+.export-stat-value.progress {
+  color: #f59e0b;
+}
+
+.export-stat-value.overdue {
+  color: #ef4444;
+}
+
+.export-stat-item.full-width {
+  grid-column: 1 / -1;
+}
+
+/* 时间段选择 */
+.export-date-range {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.export-range-option {
+  flex: 1;
+  padding: 14px;
+  border: 2px solid rgba(var(--primary-rgb), 0.15);
+  border-radius: 12px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  position: relative;
+}
+
+.export-range-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.export-range-option:hover {
+  border-color: rgba(var(--primary-rgb), 0.3);
+  background: rgba(var(--primary-rgb), 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.1);
+}
+
+.export-range-option.active {
+  border-color: var(--primary-color);
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.12) 0%, rgba(var(--primary-rgb), 0.08) 100%);
+  box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.2);
+}
+
+.export-range-option.active::before {
+  content: '✓';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* 自定义日期输入区 */
+.export-custom-dates {
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.08) 0%, rgba(var(--primary-rgb), 0.05) 100%);
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 12px;
+  border: 1px solid rgba(var(--primary-rgb), 0.15);
+}
+
+.export-date-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.export-date-group label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+  display: block;
+  font-weight: 600;
+}
+
+.export-date-tip {
+  font-size: 12px;
+  color: #888;
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 格式选择 */
+.export-format-options {
+  display: flex;
+  gap: 14px;
+}
+
+.export-format-card {
+  flex: 1;
+  padding: 16px;
+  border: 2px solid rgba(var(--primary-rgb), 0.15);
+  border-radius: 14px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.export-format-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.export-format-card:hover {
+  border-color: rgba(var(--primary-rgb), 0.3);
+  background: rgba(var(--primary-rgb), 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.1);
+}
+
+.export-format-card.active {
+  border-color: var(--primary-color);
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.12) 0%, rgba(var(--primary-rgb), 0.08) 100%);
+  box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.2);
+}
+
+.export-format-card.active::before {
+  content: '✓';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.export-format-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.export-format-desc {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* 提示框 */
+.export-tip {
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.08) 0%, rgba(var(--primary-rgb), 0.05) 100%);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #555;
+  margin-top: 20px;
+  border: 1px solid rgba(var(--primary-rgb), 0.15);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 动画 */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.export-dialog .add-task-dialog {
+  animation: slideInUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 导出对话框的按钮优化 */
+.export-dialog .dialog-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.export-dialog .btn {
+  flex: 1;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.3px;
+}
+
+.export-dialog .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  transition: left 0.5s ease;
+}
+
+.export-dialog .btn:hover::before {
+  left: 100%;
+}
+
+.export-dialog .btn-cancel {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.05) 100%);
+  color: #666;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.export-dialog .btn-cancel:hover {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.08) 100%);
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.export-dialog .btn-cancel:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.export-dialog .btn-primary {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--gradient-end) 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
+}
+
+.export-dialog .btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.4);
+}
+
+.export-dialog .btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.3);
+}
+
+.export-dialog .btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
