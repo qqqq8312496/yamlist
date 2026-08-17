@@ -1,0 +1,100 @@
+.diary-dialog {
+  max-width: 680px;
+  max-height: 85vh;
+}
+
+.diary-header-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.diary-date {
+  font-size: 13px;
+  color: #888;
+  font-weight: 400;
+}
+
+.diary-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.diary-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.05) 0%, rgba(99, 102, 241, 0.03) 100%);
+  border-radius: 16px;
+  padding: 16px;
+  border: 2px solid rgba(var(--primary-rgb), 0.15);
+}
+
+.diary-textarea {
+  width: 100%;
+  min-height: 320px;
+  padding: 16px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  resize: vertical;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.diary-textarea:focus {
+  outline: none;
+  border-color: rgba(var(--primary-rgb), 0.4);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+  background: #fff;
+}
+
+.diary-textarea::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.diary-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+}
+
+.diary-word-count {
+  font-size: 12px;
+  color: #888;
+  font-weight: 500;
+}
+
+.diary-tips {
+  font-size: 11px;
+  color: #999;
+  font-style: italic;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);
+}
+
+.btn-danger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.btn-danger:active {
+  transform: translateY(0);
+}
