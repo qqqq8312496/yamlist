@@ -1,0 +1,114 @@
+.stats-cards {
+  height: 80px;
+  display: flex;
+  gap: 12px;
+  padding: 12px 16px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.stat-card {
+  flex: 1;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 100%);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-left: 3.5px solid;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.08),
+    0 1px 4px rgba(0, 0, 0, 0.06),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-left-width: 3.5px;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stat-card:hover {
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 2px 6px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-card:active {
+  transform: scale(0.98);
+}
+
+.stat-number {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, currentColor 0%, currentColor 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: currentColor;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.stat-label {
+  font-size: 11px;
+  color: #666;
+  margin-top: 6px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 不同卡片的颜色 */
+.stat-card:nth-child(1) {
+  border-left-color: #8b5cf6;
+}
+
+.stat-card:nth-child(1) .stat-number {
+  color: #8b5cf6;
+}
+
+.stat-card:nth-child(2) {
+  border-left-color: #10b981;
+}
+
+.stat-card:nth-child(2) .stat-number {
+  color: #10b981;
+}
+
+.stat-card:nth-child(3) {
+  border-left-color: #f59e0b;
+}
+
+.stat-card:nth-child(3) .stat-number {
+  color: #f59e0b;
+}
+
+.stat-card:nth-child(4) {
+  border-left-color: #ef4444;
+}
+
+.stat-card:nth-child(4) .stat-number {
+  color: #ef4444;
+}
