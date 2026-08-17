@@ -1,0 +1,97 @@
+{
+  "name": "yamlist",
+  "version": "1.0.0",
+  "description": "山药List - 优雅的桌面便笺应用",
+  "main": "electron/YamList.js",
+  "scripts": {
+    "predev": "node scripts/clean-port.js",
+    "dev": "concurrently \"npm run dev:vite\" \"npm run dev:electron\"",
+    "dev:vite": "vite",
+    "dev:electron": "wait-on http://localhost:5173 && electron .",
+    "clean": "taskkill /F /IM node.exe /T 2>nul & taskkill /F /IM electron.exe /T 2>nul",
+    "build": "tsc && vite build",
+    "build:win": "npm run build && electron-builder --win --x64 --ia32",
+    "build:win64": "npm run build && electron-builder --win --x64",
+    "build:win32": "npm run build && electron-builder --win --ia32",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "todo",
+    "task",
+    "desktop",
+    "electron"
+  ],
+  "author": "YamList Team",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^12.4.6",
+    "date-fns": "^3.0.6",
+    "electron-store": "^8.1.0",
+    "framer-motion": "^10.18.0",
+    "lucide-react": "^0.300.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "smart-buffer": "^4.2.0",
+    "xlsx": "^0.18.5",
+    "zustand": "^4.4.7"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.1",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^8.2.2",
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vite-plugin-electron": "^0.28.1",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.yamlist.app",
+    "productName": "山药List",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "dist/index.html",
+      "dist/assets/**/*",
+      "electron/**/*",
+      "assets/**/*",
+      "database/**/*",
+      "splash.html",
+      "TSY.jpg",
+      "!dist/*.exe",
+      "!dist/*.blockmap",
+      "!dist/win-unpacked",
+      "!dist/builder-debug.yml"
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "assets/**/*",
+      "**/node_modules/better-sqlite3/**/*"
+    ],
+    "npmRebuild": true,
+    "win": {
+      "target": ["nsis", "portable"],
+      "icon": "assets/icons/icon.ico",
+      "sign": null,
+      "signingHashAlgorithms": []
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "assets/icons/icon.ico",
+      "uninstallerIcon": "assets/icons/icon.ico",
+      "installerHeaderIcon": "assets/icons/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "山药List",
+      "include": "build/installer.nsh",
+      "allowElevation": true,
+      "perMachine": false,
+      "installerLanguages": ["zh_CN", "en_US"]
+    }
+  }
+}
