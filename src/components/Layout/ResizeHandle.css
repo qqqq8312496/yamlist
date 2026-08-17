@@ -1,0 +1,70 @@
+.resize-handle {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 24px;
+  height: 24px;
+  cursor: nwse-resize;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+  border-top-left-radius: 8px;
+  border-left: 1px solid rgba(var(--primary-rgb), 0.15);
+  border-top: 1px solid rgba(var(--primary-rgb), 0.15);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  pointer-events: auto;
+}
+
+.resize-handle:hover {
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.35) 0%, rgba(129, 140, 248, 0.25) 100%);
+  border-color: rgba(var(--primary-rgb), 0.3);
+  box-shadow:
+    0 2px 8px rgba(var(--primary-rgb), 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.resize-handle.dragging {
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.45) 0%, rgba(129, 140, 248, 0.35) 100%);
+  border-color: rgba(var(--primary-rgb), 0.4);
+  box-shadow:
+    0 3px 12px rgba(var(--primary-rgb), 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.resize-handle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  opacity: 0.6;
+  transition: opacity 0.25s ease;
+}
+
+.resize-handle:hover .resize-handle-icon {
+  opacity: 1;
+}
+
+.resize-handle.dragging .resize-handle-icon {
+  opacity: 1;
+}
+
+/* 响应式：在小窗口时略微缩小 */
+@media (max-height: 700px) {
+  .resize-handle {
+    width: 20px;
+    height: 20px;
+  }
+
+  .resize-handle-icon svg {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* 锁定状态下隐藏 */
+.app-container.locked .resize-handle {
+  display: none;
+}
